@@ -15,9 +15,11 @@ grow_vertical = 2
 script = ExtResource("1_m7mfy")
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 647.0
+button_mask = 2
 
 [node name="Output" parent="." instance=ExtResource("2_yqh6r")]
 
