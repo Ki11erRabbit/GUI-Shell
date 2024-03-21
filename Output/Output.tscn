@@ -1,33 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://0dvlw6s6ksl6"]
+[gd_scene load_steps=4 format=3 uid="uid://0dvlw6s6ksl6"]
 
 [ext_resource type="Script" path="res://Output/Output.gd" id="1_271wj"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_inxdf"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lwhuk"]
 
-[node name="Output" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjkjg"]
+size = Vector2(395, 97)
+
+[node name="Output" type="CharacterBody2D"]
+position = Vector2(0, 36)
+input_pickable = true
 script = ExtResource("1_271wj")
 
-[node name="CodeEdit" type="CodeEdit" parent="."]
-layout_mode = 0
-offset_top = 97.0
-offset_right = 736.0
-offset_bottom = 465.0
-code_completion_enabled = true
-
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_right = 97.0
-offset_bottom = 97.0
+offset_top = -35.0
+offset_right = 96.0
+offset_bottom = 62.0
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
-position = Vector2(48.25, 48.25)
-scale = Vector2(97.5, 97.5)
-texture = SubResource("PlaceholderTexture2D_inxdf")
+position = Vector2(48, 49)
+scale = Vector2(95.75, 95.75)
+texture = SubResource("PlaceholderTexture2D_lwhuk")
 
+[node name="CodeEdit" type="CodeEdit" parent="."]
+offset_left = 1.0
+offset_top = 61.0
+offset_right = 491.0
+offset_bottom = 332.0
+code_completion_enabled = true
+
+[node name="TitleBar" type="CollisionShape2D" parent="."]
+position = Vector2(293.5, 12.5)
+shape = SubResource("RectangleShape2D_tjkjg")
+
+[connection signal="mouse_entered" from="." to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="mouse_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

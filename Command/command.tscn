@@ -1,10 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://0yfnrrqghgqh"]
+[gd_scene load_steps=3 format=3 uid="uid://0yfnrrqghgqh"]
 
 [ext_resource type="Script" path="res://Command/Command.gd" id="1_iiphf"]
 
-[node name="Command" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twjiu"]
+radius = 29.0
+height = 302.0
+
+[node name="Command" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+input_pickable = true
 script = ExtResource("1_iiphf")
 
 [node name="TextEdit" type="TextEdit" parent="."]
-offset_right = 518.0
-offset_bottom = 37.0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 287.0
+offset_bottom = 48.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(152, 29)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_twjiu")
+
+[connection signal="mouse_entered" from="." to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="mouse_exited"]

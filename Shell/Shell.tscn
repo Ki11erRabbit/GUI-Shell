@@ -14,13 +14,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m7mfy")
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+
 [node name="Output" parent="." instance=ExtResource("2_yqh6r")]
-layout_mode = 1
 
 [node name="Context" type="Node2D" parent="."]
 script = ExtResource("3_8qpbt")
 
 [node name="Test" parent="Context" node_paths=PackedStringArray("stdout", "stderr") instance=ExtResource("4_gh245")]
+position = Vector2(656, 76)
 command = "x"
 stdout = NodePath("../grep e")
 stderr = NodePath("../grep o")
@@ -29,4 +34,5 @@ stderr = NodePath("../grep o")
 command = "grep e"
 
 [node name="grep o" parent="Context" instance=ExtResource("4_gh245")]
+position = Vector2(38, 382)
 command = "grep o"
