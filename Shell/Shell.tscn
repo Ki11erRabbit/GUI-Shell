@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://01fl3m0job3i"]
+
+[ext_resource type="Script" path="res://Shell/Shell.gd" id="1_m7mfy"]
+[ext_resource type="PackedScene" uid="uid://0dvlw6s6ksl6" path="res://Output/Output.tscn" id="2_yqh6r"]
+[ext_resource type="Script" path="res://Shell/Context.gd" id="3_8qpbt"]
+[ext_resource type="PackedScene" uid="uid://0yfnrrqghgqh" path="res://Command/command.tscn" id="4_gh245"]
+
+[node name="Shell" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7mfy")
+
+[node name="Output" parent="." instance=ExtResource("2_yqh6r")]
+layout_mode = 1
+
+[node name="Context" type="Node2D" parent="."]
+script = ExtResource("3_8qpbt")
+
+[node name="Test" parent="Context" node_paths=PackedStringArray("stdout", "stderr") instance=ExtResource("4_gh245")]
+command = "x"
+stdout = NodePath("../grep e")
+stderr = NodePath("../grep o")
+
+[node name="grep e" parent="Context" instance=ExtResource("4_gh245")]
+command = "grep e"
+
+[node name="grep o" parent="Context" instance=ExtResource("4_gh245")]
+command = "grep o"

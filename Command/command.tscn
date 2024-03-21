@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://0yfnrrqghgqh"]
+
+[ext_resource type="Script" path="res://Command/Command.gd" id="1_iiphf"]
+
+[node name="Command" type="Node2D"]
+script = ExtResource("1_iiphf")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_right = 518.0
+offset_bottom = 37.0
