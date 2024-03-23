@@ -4,11 +4,12 @@ extends Control
 @onready var output = $Output
 @onready var context = $Context
 
+signal attach(Command, String)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	output.connect("compile",compile)
 	context.connect("done", display_code)
-	context.set_root($Context/Test)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

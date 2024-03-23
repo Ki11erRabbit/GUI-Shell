@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://s8kyonnpj12b"]
+
+[ext_resource type="Script" path="res://Shell/Start.gd" id="1_rbg4b"]
+[ext_resource type="PackedScene" uid="uid://b402k85rk3747" path="res://Node/ConnectorLabel.tscn" id="2_r2iic"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0s6uw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlvgy"]
+size = Vector2(319, 218)
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rbg4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(159.625, 123)
+scale = Vector2(318.75, 190)
+texture = SubResource("PlaceholderTexture2D_0s6uw")
+
+[node name="Start" parent="." node_paths=PackedStringArray("command") instance=ExtResource("2_r2iic")]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 101.0
+offset_right = 333.0
+offset_bottom = 127.0
+text = "START"
+command = NodePath("..")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(159.5, 109)
+shape = SubResource("RectangleShape2D_mlvgy")
+
+[connection signal="attach" from="." to="." method="on_attach"]
+[connection signal="mouse_entered" from="." to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="mouse_exited"]

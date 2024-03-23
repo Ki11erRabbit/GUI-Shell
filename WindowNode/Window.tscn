@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn1ktmxfxwx1l"]
+
+[ext_resource type="Script" path="res://WindowNode/Window.gd" id="1_vyryv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2s57"]
+size = Vector2(276, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq1bi"]
+size = Vector2(310, 14)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6erfl"]
+
+[node name="Window" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_vyryv")
+
+[node name="Container" type="CenterContainer" parent="."]
+offset_top = 14.0
+offset_right = 310.0
+offset_bottom = 96.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(138, 6)
+shape = SubResource("RectangleShape2D_u2s57")
+
+[node name="Header" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Header"]
+position = Vector2(155, 7)
+shape = SubResource("RectangleShape2D_pq1bi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Header"]
+position = Vector2(155, 7)
+scale = Vector2(310, 14)
+texture = SubResource("PlaceholderTexture2D_6erfl")
+
+[connection signal="mouse_entered" from="Header" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Header" to="." method="mouse_exited"]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://ndsv0n3h0cjt"]
+
+[sub_resource type="GDScript" id="GDScript_qyqok"]
+script/source = "extends Control
+
+class_name ConnectorNode
+
+@export var text: String
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Label.text = text
+	var hitbox = $Hitbox/Hitbox.size
+	var label = $Label.size
+	if label.y < hitbox.y:
+		hitbox.y = label.y
+	elif hitbox.y < label.y:
+		label.y = hitbox.y
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnnta"]
+size = Vector2(92, 26)
+
+[node name="ConnectorNode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_qyqok")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Placeholder"
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(46, 13)
+shape = SubResource("RectangleShape2D_bnnta")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://01fl3m0job3i"]
+[gd_scene load_steps=7 format=3 uid="uid://01fl3m0job3i"]
 
 [ext_resource type="Script" path="res://Shell/Shell.gd" id="1_m7mfy"]
 [ext_resource type="PackedScene" uid="uid://0dvlw6s6ksl6" path="res://Output/Output.tscn" id="2_yqh6r"]
 [ext_resource type="Script" path="res://Shell/Context.gd" id="3_8qpbt"]
+[ext_resource type="PackedScene" uid="uid://cn1ktmxfxwx1l" path="res://WindowNode/Window.tscn" id="4_7007g"]
 [ext_resource type="PackedScene" uid="uid://0yfnrrqghgqh" path="res://Command/command.tscn" id="4_gh245"]
+[ext_resource type="PackedScene" uid="uid://s8kyonnpj12b" path="res://Shell/Start.tscn" id="6_lpcgj"]
 
 [node name="Shell" type="Control"]
 layout_mode = 3
@@ -15,24 +17,28 @@ grow_vertical = 2
 script = ExtResource("1_m7mfy")
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 647.0
 
 [node name="Output" parent="." instance=ExtResource("2_yqh6r")]
+position = Vector2(554, 68)
 
-[node name="Context" type="Node2D" parent="."]
+[node name="Context" type="Node2D" parent="." node_paths=PackedStringArray("start")]
 script = ExtResource("3_8qpbt")
+start = NodePath("../Window2/Start")
 
-[node name="Test" parent="Context" node_paths=PackedStringArray("stdout", "stderr") instance=ExtResource("4_gh245")]
-position = Vector2(656, 76)
-command = "x"
-stdout = NodePath("../grep e")
-stderr = NodePath("../grep o")
+[node name="Window" parent="." node_paths=PackedStringArray("contents") instance=ExtResource("4_7007g")]
+contents = NodePath("Command")
 
-[node name="grep e" parent="Context" instance=ExtResource("4_gh245")]
-command = "grep e"
+[node name="Command" parent="Window" instance=ExtResource("4_gh245")]
+command = "echo \"Hello World\""
 
-[node name="grep o" parent="Context" instance=ExtResource("4_gh245")]
-position = Vector2(38, 382)
-command = "grep o"
+[node name="Window2" parent="." node_paths=PackedStringArray("contents") instance=ExtResource("4_7007g")]
+position = Vector2(67, 240)
+contents = NodePath("Start")
+
+[node name="Start" parent="Window2" instance=ExtResource("6_lpcgj")]
+offset_top = 1.0
+offset_bottom = 1.0

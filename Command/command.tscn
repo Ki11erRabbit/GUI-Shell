@@ -1,27 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://0yfnrrqghgqh"]
+[gd_scene load_steps=5 format=3 uid="uid://0yfnrrqghgqh"]
 
 [ext_resource type="Script" path="res://Command/Command.gd" id="1_iiphf"]
+[ext_resource type="PackedScene" uid="uid://b402k85rk3747" path="res://Node/ConnectorLabel.tscn" id="5_eofx6"]
+[ext_resource type="PackedScene" uid="uid://dnpo5k5vgkap3" path="res://Node/ConnectorReciever.tscn" id="6_383xp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twjiu"]
-radius = 29.0
-height = 302.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlvgy"]
+size = Vector2(319, 218)
 
-[node name="Command" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 0
-input_pickable = true
+[node name="Command" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_iiphf")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 318.0
+offset_bottom = 218.0
+color = Color(0.521569, 0.521569, 0.521569, 1)
+
 [node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 13.0
-offset_top = 11.0
-offset_right = 287.0
-offset_bottom = 48.0
+layout_mode = 0
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 296.0
+offset_bottom = 64.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(152, 29)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_twjiu")
+[node name="STDIN" parent="." instance=ExtResource("6_383xp")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1.0
+offset_top = 134.0
+offset_right = 55.0
+offset_bottom = 160.0
+text = "STDIN"
 
+[node name="STDOUT" parent="." node_paths=PackedStringArray("command") instance=ExtResource("5_eofx6")]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 101.0
+offset_right = 319.0
+offset_bottom = 127.0
+text = "STDOUT"
+command = NodePath("..")
+
+[node name="STDERR" parent="." node_paths=PackedStringArray("command") instance=ExtResource("5_eofx6")]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 174.0
+offset_right = 319.0
+offset_bottom = 200.0
+text = "STDERR"
+command = NodePath("..")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(159.5, 109)
+shape = SubResource("RectangleShape2D_mlvgy")
+
+[connection signal="attach" from="." to="." method="on_attach"]
 [connection signal="mouse_entered" from="." to="." method="mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="mouse_exited"]

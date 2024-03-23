@@ -2,8 +2,8 @@ extends Node2D
 
 signal done(String)
 
-@onready var root: Command = null
-@onready var free_nodes: Dictionary = {}
+
+@export var start: Start
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,11 +15,7 @@ func _process(delta):
 	pass
 
 func compile():
-	if root == null:
-		pass
-	var output = root.compile()
+	var output = start.compile()
 	print(output)
 	emit_signal("done", output)
 
-func set_root(command):
-	root = command

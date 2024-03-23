@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b64vq74k6tuke"]
+
+[ext_resource type="Script" path="res://Node/ConnectorNode.gd" id="1_a23ew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykstq"]
+size = Vector2(92, 26)
+
+[sub_resource type="Curve2D" id="Curve2D_iskjs"]
+
+[node name="ConnectorNode" type="Node2D"]
+script = ExtResource("1_a23ew")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Placeholder"
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(46, 13)
+shape = SubResource("RectangleShape2D_ykstq")
+
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_iskjs")
+
+[connection signal="body_entered" from="Hitbox" to="." method="hitbox_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="hitbox_exited"]
+[connection signal="mouse_entered" from="Hitbox" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="mouse_exited"]
