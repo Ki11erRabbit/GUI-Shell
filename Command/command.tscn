@@ -14,6 +14,7 @@ script = ExtResource("1_iiphf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
+offset_top = 14.0
 offset_right = 318.0
 offset_bottom = 218.0
 color = Color(0.521569, 0.521569, 0.521569, 1)
