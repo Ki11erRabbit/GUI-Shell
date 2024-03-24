@@ -26,19 +26,34 @@ offset_bottom = 647.0
 position = Vector2(554, 68)
 
 [node name="Context" type="Node2D" parent="." node_paths=PackedStringArray("start")]
+y_sort_enabled = true
 script = ExtResource("3_8qpbt")
-start = NodePath("../Window2/Start")
+start = NodePath("Window2/Start")
 
-[node name="Window" parent="." node_paths=PackedStringArray("contents") instance=ExtResource("4_7007g")]
+[node name="Window" parent="Context" node_paths=PackedStringArray("contents") instance=ExtResource("4_7007g")]
 contents = NodePath("Command")
 
-[node name="Command" parent="Window" instance=ExtResource("4_gh245")]
+[node name="Command" parent="Context/Window" instance=ExtResource("4_gh245")]
 command = "echo \"Hello World\""
 
-[node name="Window2" parent="." node_paths=PackedStringArray("contents") instance=ExtResource("4_7007g")]
+[node name="Window3" parent="Context" node_paths=PackedStringArray("contents") instance=ExtResource("4_7007g")]
+position = Vector2(0, 150)
+contents = NodePath("../Window/Command")
+
+[node name="Command" parent="Context/Window3" instance=ExtResource("4_gh245")]
+command = "echo \"Hello World\""
+
+[node name="Window4" parent="Context" node_paths=PackedStringArray("contents") instance=ExtResource("4_7007g")]
+position = Vector2(240, 54)
+contents = NodePath("../Window/Command")
+
+[node name="Command" parent="Context/Window4" instance=ExtResource("4_gh245")]
+command = "echo \"Hello World\""
+
+[node name="Window2" parent="Context" node_paths=PackedStringArray("contents") instance=ExtResource("4_7007g")]
 position = Vector2(67, 240)
 contents = NodePath("Start")
 
-[node name="Start" parent="Window2" instance=ExtResource("6_lpcgj")]
+[node name="Start" parent="Context/Window2" instance=ExtResource("6_lpcgj")]
 offset_top = 1.0
 offset_bottom = 1.0

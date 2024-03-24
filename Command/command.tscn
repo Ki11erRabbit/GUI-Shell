@@ -45,6 +45,7 @@ offset_right = 319.0
 offset_bottom = 127.0
 text = "STDOUT"
 command = NodePath("..")
+io = "STDOUT"
 
 [node name="STDERR" parent="." node_paths=PackedStringArray("command") instance=ExtResource("5_eofx6")]
 layout_mode = 0
@@ -54,6 +55,7 @@ offset_right = 319.0
 offset_bottom = 200.0
 text = "STDERR"
 command = NodePath("..")
+io = "STDERR"
 
 [node name="Area2D" type="Area2D" parent="."]
 

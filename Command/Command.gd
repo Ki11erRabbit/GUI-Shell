@@ -18,7 +18,7 @@ func compile() -> String:
 	elif compiled_stdout == null and compiled_stderr != null:
 		return get_node("TextEdit").text + "1>&3 2>&1 | " + compiled_stderr
 	else:
-		var format_string = "{ {command1} 2>&3 | {command2}; } 3>&1 | {command3}"
+		var format_string = "{ {command1} 2>&3 | {command2}; } 1>&2 3>&1 | {command3}"
 		var dict = {"command1": get_node("TextEdit").text, "command2": compiled_stdout, "command3": compiled_stderr}
 		return format_string.format(dict)
 

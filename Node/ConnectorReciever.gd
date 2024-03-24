@@ -21,4 +21,4 @@ func _can_drop_data(position: Vector2, data) -> bool:
 
 func _drop_data(position: Vector2, data) -> void:
 	print("sending attach")
-	data.send_attach(get_parent(), connector_name)
+	data.send_attach(get_parent())

@@ -1,6 +1,7 @@
 extends Label
 
 @export var command: Command
+@export var io: String
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +17,6 @@ func _get_drag_data(_position: Vector2):
 	print("[Draggable] get_drag_data has run")
 	return self
 
-func send_attach(cmd: Command, io: String):
+func send_attach(cmd: Command):
 	print("sending attach signal")
 	command.emit_signal("attach", cmd, io)
