@@ -6,7 +6,6 @@ class_name Start
 
 
 func compile() -> String:
-	print("Compiling...")
 	if the_command == null:
 		return "start not set"
 	return the_command.compile()

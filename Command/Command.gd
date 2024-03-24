@@ -8,7 +8,6 @@ class_name Command
 signal attach(Command, String)
 
 func compile() -> String:
-	print("Compiling...")
 	var compiled_stdout = compile_stdout()
 	var compiled_stderr = compile_stderr()
 	if compiled_stdout == null and compiled_stderr == null:
@@ -16,7 +15,7 @@ func compile() -> String:
 	elif compiled_stdout != null and compiled_stderr == null:
 		return get_node("TextEdit").text + " | " + compiled_stdout
 	elif compiled_stdout == null and compiled_stderr != null:
-		return get_node("TextEdit").text + "1>&3 2>&1 | " + compiled_stderr
+		return get_node("TextEdit").text + " 2> >(%s)" % compiled_stderr
 	else:
 		var format_string = "{command1} > >({command2}) 2> >({command3})"
 		var dict = {"command1": get_node("TextEdit").text, "command2": compiled_stdout, "command3": compiled_stderr}
