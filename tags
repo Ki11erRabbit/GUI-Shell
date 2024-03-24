@@ -31,25 +31,17 @@
 !_TAG_PARSER_VERSION!SVG	0.0	/current.age/
 !_TAG_PARSER_VERSION!XML	0.0	/current.age/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/home/ki11errabbit/Godot/GUI-CMD-Line/	//
+!_TAG_PROC_CWD	/home/ki11errabbit/Godot/GUI-Shell/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	6.0.0	//
 !_TAG_ROLE_DESCRIPTION!GDScript!class	extended	/used as a base class for extending/
 Command	Command/Command.gd	/^class_name Command$/;"	c
-ConnectorNode	Node/ConnectorNode.gd	/^class_name ConnectorNode$/;"	c
-InletNode	Node/InletNode.gd	/^class_name InletNode$/;"	c
-OutletNode	Node/OutletNode.gd	/^class_name OutletNode$/;"	c
 Start	Shell/Start.gd	/^class_name Start$/;"	c
-WireNode	Node/WireNode.gd	/^class_name WireNode$/;"	c
 _can_drop_data	Node/ConnectorReciever.gd	/^func _can_drop_data(position: Vector2, data) -> bool:$/;"	m	typeref:typename:bool
 _drop_data	Node/ConnectorReciever.gd	/^func _drop_data(position: Vector2, data) -> void:$/;"	m	typeref:typename:void
 _get_drag_data	Node/ConnectorLabel.gd	/^func _get_drag_data(_position: Vector2):$/;"	m
-_init	Node/WireNode.gd	/^func _init(out, the_path, the_text):$/;"	m
-_input	Node/ConnectorNode.gd	/^func _input(event):$/;"	m
-_input	Node/OutletNode.gd	/^func _input(event):$/;"	m
-_input	Node/WireNode.gd	/^func _input(event):$/;"	m
 _input	Output/Output.gd	/^func _input(event):$/;"	m
 _input	WindowNode/Window.gd	/^func _input(event):$/;"	m
 _on_texture_button_pressed	Output/Output.gd	/^func _on_texture_button_pressed():$/;"	m
@@ -57,18 +49,13 @@ _physics_process	Output/Output.gd	/^func _physics_process(delta):$/;"	m
 _physics_process	WindowNode/Window.gd	/^func _physics_process(delta):$/;"	m
 _process	Command/Command.gd	/^func _process(delta):$/;"	m
 _process	Node/ConnectorLabel.gd	/^func _process(delta):$/;"	m
-_process	Node/ConnectorNode.gd	/^func _process(delta):$/;"	m
 _process	Node/ConnectorReciever.gd	/^func _process(delta):$/;"	m
-_process	Node/InletNode.gd	/^func _process(delta):$/;"	m
-_process	Node/OutletNode.gd	/^func _process(delta):$/;"	m
-_process	Node/WireNode.gd	/^func _process(delta):$/;"	m
 _process	Output/Output.gd	/^func _process(delta):$/;"	m
 _process	Shell/Context.gd	/^func _process(delta):$/;"	m
 _process	Shell/Shell.gd	/^func _process(delta):$/;"	m
 _process	Shell/Start.gd	/^func _process(delta):$/;"	m
 _ready	Command/Command.gd	/^func _ready():$/;"	m
 _ready	Node/ConnectorLabel.gd	/^func _ready():$/;"	m
-_ready	Node/ConnectorNode.gd	/^func _ready():$/;"	m
 _ready	Node/ConnectorReciever.gd	/^func _ready():$/;"	m
 _ready	Output/Output.gd	/^func _ready():$/;"	m
 _ready	Shell/Context.gd	/^func _ready():$/;"	m
@@ -77,7 +64,6 @@ _ready	Shell/Start.gd	/^func _ready():$/;"	m
 _ready	WindowNode/Window.gd	/^func _ready():$/;"	m
 add_to_container	WindowNode/Window.gd	/^func add_to_container(item):$/;"	m
 attach	Command/Command.gd	/^signal attach(Command, String)$/;"	s
-attach	Node/ConnectorNode.gd	/^signal attach$/;"	s
 attach	Shell/Shell.gd	/^signal attach(Command, String)$/;"	s
 command	Command/Command.gd	/^@export var command: String$/;"	v	typeref:typename:String	annotations:export
 command	Node/ConnectorLabel.gd	/^@export var command: Command$/;"	v	typeref:typename:Command	annotations:export
@@ -99,39 +85,22 @@ dragging	Output/Output.gd	/^var dragging$/;"	v
 dragging	WindowNode/Window.gd	/^var dragging$/;"	v
 draggingDistance	Output/Output.gd	/^var draggingDistance$/;"	v
 draggingDistance	WindowNode/Window.gd	/^var draggingDistance$/;"	v
-found_inlet	Node/OutletNode.gd	/^var found_inlet: bool$/;"	v	typeref:typename:bool
-hitbox_entered	Node/ConnectorNode.gd	/^func hitbox_entered(node):$/;"	m
-hitbox_entered	Node/InletNode.gd	/^func hitbox_entered(node):$/;"	m
-hitbox_entered	Node/OutletNode.gd	/^func hitbox_entered(area):$/;"	m
-hitbox_entered	Node/WireNode.gd	/^func hitbox_entered(node):$/;"	m
-hitbox_exited	Node/ConnectorNode.gd	/^func hitbox_exited(node):$/;"	m
-hitbox_exited	Node/InletNode.gd	/^func hitbox_exited(node):$/;"	m
-hitbox_exited	Node/OutletNode.gd	/^func hitbox_exited(area):$/;"	m
-hitbox_exited	Node/WireNode.gd	/^func hitbox_exited(node):$/;"	m
-inlet	Node/WireNode.gd	/^@export var inlet: ConnectorNode$/;"	v	typeref:typename:ConnectorNode	annotations:export
-mouse_entered	Node/ConnectorNode.gd	/^func mouse_entered():$/;"	m
+io	Node/ConnectorLabel.gd	/^@export var io: String$/;"	v	typeref:typename:String	annotations:export
 mouse_entered	Output/Output.gd	/^func mouse_entered():$/;"	m
 mouse_entered	WindowNode/Window.gd	/^func mouse_entered():$/;"	m
-mouse_exited	Node/ConnectorNode.gd	/^func mouse_exited():$/;"	m
 mouse_exited	Output/Output.gd	/^func mouse_exited():$/;"	m
 mouse_exited	WindowNode/Window.gd	/^func mouse_exited():$/;"	m
-mouse_in	Node/ConnectorNode.gd	/^var mouse_in = false$/;"	v
 mouse_in	Output/Output.gd	/^var mouse_in = false$/;"	v
 mouse_in	WindowNode/Window.gd	/^var mouse_in = false$/;"	v
 newPosition	Output/Output.gd	/^var newPosition = Vector2()$/;"	v
 newPosition	WindowNode/Window.gd	/^var newPosition = Vector2()$/;"	v
 ns3247706c0101	icon.svg	/^<svg height="128" width="128" xmlns="http:\/\/www.w3.org\/2000\/svg"><rect x="2" y="2" width="12/;"	n	uri:http://www.w3.org/2000/svg
 on_attach	Command/Command.gd	/^func on_attach(other: Command, io: String):$/;"	m
-on_attach	Node/InletNode.gd	/^func on_attach():$/;"	m
 on_attach	Shell/Start.gd	/^func on_attach(other: Command, _io: String):$/;"	m
-on_connect	Node/ConnectorNode.gd	/^func on_connect(path_to):$/;"	m
-outlet	Node/WireNode.gd	/^@export var outlet: ConnectorNode$/;"	v	typeref:typename:ConnectorNode	annotations:export
 output	Shell/Shell.gd	/^@onready var output = $Output$/;"	v	annotations:onready
-path	Node/ConnectorNode.gd	/^@onready var path = $Path$/;"	v	annotations:onready
-send_attach	Node/ConnectorLabel.gd	/^func send_attach(cmd: Command, io: String):$/;"	m
+send_attach	Node/ConnectorLabel.gd	/^func send_attach(cmd: Command):$/;"	m
 set_text	Output/Output.gd	/^func set_text(str: String):$/;"	m
 start	Shell/Context.gd	/^@export var start: Start$/;"	v	typeref:typename:Start	annotations:export
 stderr	Command/Command.gd	/^@export var stderr: Command $/;"	v	typeref:typename:Command	annotations:export
 stdout	Command/Command.gd	/^@export var stdout: Command$/;"	v	typeref:typename:Command	annotations:export
-text	Node/ConnectorNode.gd	/^@export var text: String$/;"	v	typeref:typename:String	annotations:export
 the_command	Shell/Start.gd	/^@export var the_command: Command$/;"	v	typeref:typename:Command	annotations:export
