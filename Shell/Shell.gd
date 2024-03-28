@@ -22,3 +22,12 @@ func compile():
 func display_code(pipeline: String):
 	print(pipeline)
 	output.set_text(pipeline)
+
+func display_context_menu():
+	var pos = get_local_mouse_position()
+	$Context.add_child(ContextMenu.new(pos))
+
+
+func _on_button_pressed():
+	print("Pressed")
+	display_context_menu()

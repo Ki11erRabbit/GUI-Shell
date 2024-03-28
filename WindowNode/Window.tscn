@@ -9,6 +9,7 @@ size = Vector2(276, 12)
 size = Vector2(310, 14)
 
 [node name="Window" type="CharacterBody2D"]
+y_sort_enabled = true
 input_pickable = true
 script = ExtResource("1_vyryv")
 
